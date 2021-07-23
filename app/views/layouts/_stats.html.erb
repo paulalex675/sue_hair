@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Total Earned</th>
+            <th scope="col">Total Expenses</th>
+            <th scope="col">Total Profit</th>
+            <th scope="col">Total Mileage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%=  Job.all.sum(:charge) %></td>
+            <td><%=  Expense.all.sum(:cost) %></td>
+            <td><%= Job.all.sum(:charge) - Expense.all.sum(:cost) %></td>
+            <td><%= Job.all.sum(:mileage) %></td>
+        </tr>
+    </tbody>
+</table>
