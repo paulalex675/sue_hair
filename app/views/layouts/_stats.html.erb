@@ -9,10 +9,10 @@
     </thead>
     <tbody>
         <tr>
-            <td><%=  Job.all.sum(:charge) %></td>
-            <td><%=  Expense.all.sum(:cost) %></td>
-            <td><%= Job.all.sum(:charge) - Expense.all.sum(:cost) %></td>
-            <td><%= Job.all.sum(:mileage) %></td>
+            <td><%=  current_user.jobs.all.sum(:charge) %></td>
+            <td><%=  current_user.expenses.all.sum(:cost) %></td>
+            <td><%= current_user.jobs.all.sum(:charge) - current_user.expenses.all.sum(:cost) %></td>
+            <td><%= current_user.jobs.all.sum(:mileage) %></td>
         </tr>
     </tbody>
 </table>
