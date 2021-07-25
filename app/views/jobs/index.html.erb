@@ -2,9 +2,10 @@
 
 <h1>Jobs</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
+      <th>Service</th>
       <th>Charge</th>
       <th>Expenses</th>
       <th>Mileage</th>
@@ -14,8 +15,9 @@
   </thead>
 
   <tbody>
-    <% @jobs.each do |job| %>
+    <% current_user.jobs.each do |job| %>
       <tr>
+        <td><%= job.service.name %></td>
         <td><%= job.charge %></td>
         <td><%= job.expenses %></td>
         <td><%= job.mileage %></td>

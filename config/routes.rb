@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :services
   resources :expenses
   resources :addresses
   resources :jobs
   resources :clients
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  devise_for :users
+  resources :users, only: [:show, :index]
   root to: 'home#index'
 
   

@@ -21,11 +21,12 @@ class JobsController < ApplicationController
 
   # POST /jobs or /jobs.json
   def create
-    @job = Job.new(job_params)
+    @user = current_user
+    @job = @user.jobs.new(job_params)
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: "Job was successfully created." }
+        format.html { redirect_to root_path, notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +52,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: "Job was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Job was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -64,6 +65,6 @@ class JobsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:charge, :expenses, :mileage, :notes)
+      params.require(:job).permit(:user_id, :client_id, :service_id, :charge, :mileage, :notes)
     end
 end
