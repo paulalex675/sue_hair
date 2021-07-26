@@ -21,7 +21,8 @@ class ServicesController < ApplicationController
 
   # POST /services or /services.json
   def create
-    @service = Service.new(service_params)
+    @user = current_user
+    @service = @user.services.new(service_params)
 
     respond_to do |format|
       if @service.save
@@ -64,6 +65,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name)
+      params.require(:service).permit(:name, :user_id)
     end
 end

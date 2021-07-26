@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :clients
   has_many :expenses
+  has_many :services
 end
