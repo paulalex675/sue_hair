@@ -9,6 +9,7 @@
         <li><%= link_to 'Jobs', jobs_path %></li>
         <li><%= link_to 'Expenses', expenses_path %></li>
         <li><%= link_to 'Clients', clients_path %></li>
+        <li><%= link_to 'Services', services_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to 'My Account', edit_registration_path(current_user) %>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %>

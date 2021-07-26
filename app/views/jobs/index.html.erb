@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% current_user.jobs.each do |job| %>
+    <% @jobs.each do |job| %>
       <tr>
         <td><%= job.service.name %></td>
         <td><%= job.charge %></td>
         <td><%= job.expenses %></td>
         <td><%= job.mileage %></td>
         <td><%= job.notes %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', job, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_job_path(job), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
