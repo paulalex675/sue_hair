@@ -1,5 +1,13 @@
-<div class=" width-half">
-  <%= link_to 'Job', new_job_path, class: "btn btn-outline-primary btn-lg btn-block" %>
+<div class=" col-4 ">
+</div>
+<div class="col-4 ">
+  <% if current_user.clients.count > 0 %>
+    <%= link_to 'Job', new_job_path, class: "btn btn-outline-primary btn-lg btn-block" %>
+  <% else %>
+    <p>Create some clients then you can log some work</p>
+  <% end %>
+  <%= link_to 'Client', new_client_path, class: "btn btn-outline-primary btn-lg btn-block tool-tip" %>
   <%= link_to 'Expense', new_expense_path, class: "btn btn-outline-primary btn-lg btn-block" %>
-  <%= link_to 'Client', new_client_path, class: "btn btn-outline-primary btn-lg btn-block" %>
+</div>
+<div class="col-4">
 </div>
