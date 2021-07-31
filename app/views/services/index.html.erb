@@ -22,26 +22,27 @@
 <br>
 
 <h1>My Services</h1>
-
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.services.each do |service| %>
+<% if current_user.services.count > 0 %>
+  <table class="table table-dark">
+    <thead>
       <tr>
-        <td><%= service.name %></td>
-        <td><%= link_to 'Show', service, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% current_user.services.each do |service| %>
+        <tr>
+          <td><%= service.name %></td>
+          <td><%= link_to 'Show', service, class: "btn btn-primary" %></td>
+          <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
+          <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <br>
 
